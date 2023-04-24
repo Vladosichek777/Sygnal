@@ -1,0 +1,150 @@
+.header {
+
+    &__inner {
+        padding: 15px;
+    }
+
+    &__flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__button-mobile {
+       p {
+        margin-block-start: 0;
+        margin-block-end: 0;
+       }
+
+       p:first-child {
+        width: 16px;
+        border: 2px solid black;
+       }
+
+       p:nth-child(2) {
+        width: 20px;
+        border: 2px solid black;
+       }
+
+       p:last-child {
+        width: 24px;
+        border: 2px solid black;
+       }
+
+       p:not(:last-child) {
+        margin-bottom: 4px;
+       }
+    }
+
+    &__mobile-menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ffffff;
+        padding-left: 15px;
+        padding-top: 22px;
+
+        &__list {
+            margin-block-start: 0;
+            margin-block-end: 0;
+            padding-inline-start:0;
+            position: absolute;
+            left: 50%;
+            top: 3%;
+            transform: translate(-50%);
+
+            li:first-child {
+                margin-bottom: 35px;
+                text-align: center;
+            }
+            li:not(:first-child) {
+                margin-bottom: 25px;
+                text-align: center;
+            }
+            li:last-child {
+                margin-bottom: 0;
+            }
+
+
+            li {
+                list-style: none;
+
+                a {
+                    display: block;
+                    text-decoration: none;
+                    color: black;
+                    padding: 15px 30px;
+                }
+
+                &:first-child a {
+                    padding: 0;
+                    padding-top: 15px;
+                }
+                
+            }
+        }
+
+        &__button-close {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+
+@media(min-width:1000px) {
+    .header{
+        &__button-mobile {
+            display: none;
+        }
+
+        &__mobile-menu {
+            position: static;
+            padding-left: 0;
+            padding-top: 0;
+
+            &__list {
+                position: static;
+                display: flex;
+                transform: none;
+
+                li:not(:first-child) {
+                    margin-bottom: 0;
+                }
+
+                li:first-child {
+                    display: none;
+                }
+
+                li:last-child {
+                    display: none;
+                }
+
+                a {
+                    &:hover {
+                        color:#F41240;
+                    }
+                }
+            }
+
+            &__button-close {
+                display: none;
+            }
+        }
+
+        &__logo {
+            order: -1;
+            transition: all 0.3s;
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    .hiddenMobileMenu {
+        display: block;
+    }
+}
